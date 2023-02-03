@@ -26,7 +26,8 @@ module.exports = {
       backgroundImage:{
         blob:"url(../src/assets/bg.svg)",
         blobStatic:"url(../src/assets/bg2.svg)",
-        line:"url(../src/assets/BgLine.svg)"
+        line:"url(../src/assets/BgLine.svg)",
+        line2:"url(../src/assets/BgLine2.svg)",
       }
     },
   },

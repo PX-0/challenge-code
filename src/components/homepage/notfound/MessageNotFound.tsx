@@ -10,7 +10,7 @@ export default function MessageNotFound(props: props) {
   }
 
   return (
-    <div className="h-[calc(100vh-80px)] flex flex-col justify-start items-center bg-line bg-cover bg-center bg-no-repeat gap-3">
+    <div className="h-[calc(100vh-74px)] flex flex-col justify-start items-center bg-line bg-cover bg-center bg-no-repeat gap-3">
       <p className="text-slate-50 text-center uppercase font-semibold text-2xl mt-28 flex gap-2 border border-transparent p-3 rounded-md shadow-md shadow-cyan-500">
         Nessuna azienda presente
         <NotFoundIcon className="stroke-cyan-600 w-8 h-8"/>

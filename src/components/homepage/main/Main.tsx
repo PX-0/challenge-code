@@ -14,7 +14,7 @@ export default function Main(props:props) {
 
   return (
     <>
-      <div className="bg-line bg-no-repeat bg-cover bg-center h-[calc(100vh-80px)] text-center p-20 flex flex-col items-center">
+      <div className="bg-line bg-no-repeat bg-cover bg-center h-[calc(100vh-74px)] text-center p-20 md:flex md:flex-col md:items-center">
         <CompanyList items={ccx.companies}/>
         <MyButton
           onClick={onClickHandler}

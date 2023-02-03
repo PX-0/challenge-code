@@ -12,7 +12,7 @@ interface props {
 }
 export default function CompanyList(props: props) {
   return (
-    <div className="w-1/2">
+    <div className="md:w-1/2">
       <Swiper
          modules={[Navigation]}
          spaceBetween={20}
