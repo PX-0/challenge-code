@@ -1,18 +1,16 @@
 import Company from "../../model/Company";
 import { Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import CompanyItem from "./CompanyItem";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
 
 interface props {
   items: Company[];
 }
 export default function CompanyList(props: props) {
   return (
-    <div className="md:w-1/2 w-full">
+    <div className="w-1/2">
       <Swiper
          modules={[Navigation]}
          spaceBetween={20}
@@ -21,7 +19,7 @@ export default function CompanyList(props: props) {
       >
         {props.items.map((item) => {
           return (
-            <SwiperSlide key={item.name + item.address}>
+            <SwiperSlide key={item.name + item.address} className="p-2">
               <CompanyItem
                 name={item.name}
                 address={item.address}
