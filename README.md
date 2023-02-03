@@ -1,5 +1,5 @@
 #1 Strumenti utilizzati
--React(Typescript),Taiwind CSS
+React(Typescript) e Taiwind CSS
 
 #2 design
--ho optato per un minimal monocromo
+Ho optato per un minimal monocromo
