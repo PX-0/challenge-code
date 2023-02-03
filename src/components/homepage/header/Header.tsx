@@ -5,7 +5,7 @@ export default function Header() {
 
   const iniziali = name?.slice(0, 2);
   return (
-    <header className="flex justify-between items-center md:px-20 px-3 py-4 border-b border-cyan-900">
+    <header className="flex justify-between items-center px-20 py-4 border-b border-cyan-900">
       
       <div className="flex items-center gap-2">
         <p className="text-2xl font-semibold text-cyan-500">Companies</p>

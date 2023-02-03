@@ -12,40 +12,14 @@ interface props {
 export default function Offcanvas(props: props) {
   const ccx = useContext(CompaniesContext);
 
-  const regEx = new RegExp('[3-9]{3}-[0-9]{3}-[0-9]{4}')
-
-  function onClickHandler() {
-    props.onClick();
-  }
-
-  function onSubmitHandler(event: FormEvent) {
-    const formValid =
-      !nameCompanyHasError &&
-      !addressCompanyHasError &&
-      !phoneCompanyHasError &&
-      !revenueCompanyHasError;
-    event.preventDefault();
-
-    if (formValid) {
-      const newComp = new Company(
-        enteredNameCompany,
-        enteredAddressCompany,
-        enteredPhoneCompany,
-        enteredRevenueCompany
-      );
-
-      ccx.addComp(newComp);
-    } else {
-      return;
-    }
-  }
+  const regEx = new RegExp("[3-9]{3}-[0-9]{3}-[0-9]{4}");
 
   const {
     enteredValue: enteredNameCompany,
     onChangeValueHandler: onChangeHandlerNameCompany,
     hasError: nameCompanyHasError,
     onBlurInputHandler: onBlurNameCompanyHandler,
-  } = useInput((value: string) => value.trim().length>3);
+  } = useInput((value: string) => value.trim().length > 3);
 
   const {
     enteredValue: enteredPhoneCompany,
@@ -67,6 +41,34 @@ export default function Offcanvas(props: props) {
     hasError: revenueCompanyHasError,
     onBlurInputHandler: onBlurRevenueCompanyHandler,
   } = useInput((value: string) => value.trim().length > 1);
+
+  const formValid =
+    !nameCompanyHasError &&
+    !addressCompanyHasError &&
+    !phoneCompanyHasError &&
+    !revenueCompanyHasError;
+
+  function onClickHandler() {
+    props.onClick();
+  }
+
+  function onSubmitHandler(event: FormEvent) {
+    event.preventDefault();
+
+    if (formValid) {
+      const newComp = new Company(
+        enteredNameCompany,
+        enteredAddressCompany,
+        enteredPhoneCompany,
+        enteredRevenueCompany
+      );
+
+      ccx.addComp(newComp);
+      props.onClick();
+    } else {
+      return;
+    }
+  }
 
   return (
     <div
@@ -169,7 +171,7 @@ export default function Offcanvas(props: props) {
             <input
               className={"pl-3 pr-4 py-1 rounded-3xl"}
               type="number"
-              step={10}
+              step={1}
               min={0}
               id="RevenueCompany"
               placeholder="10"
@@ -184,7 +186,8 @@ export default function Offcanvas(props: props) {
             )}
           </div>
           <MyButton
-            onClick={undefined}
+          disabled={false}
+          onClick={undefined}
             classname="bg-cyan-500 mt-2 px-2 hover:ease-in duration-200 py-2 w-28 text-xs font-semibold rounded-lg font-jp hover:text-white hover:bg-cyan-900"
           >
             ADD COMPANY

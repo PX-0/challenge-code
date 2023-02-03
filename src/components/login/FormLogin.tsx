@@ -127,6 +127,7 @@ function FormLogin() {
             )}
           </div>
           <MyButton
+          disabled={false}
             onClick={undefined}
             classname="py-1 px-7 text-white rounded-3xl bg-cyan-600 hover:bg-cyan-900 hover:ease-in duration-200"
           >
