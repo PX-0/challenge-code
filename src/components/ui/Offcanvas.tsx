@@ -16,6 +16,7 @@ export default function Offcanvas(props: props) {
 
   const {
     enteredValue: enteredNameCompany,
+    valueIsValid: nameIsValid,
     onChangeValueHandler: onChangeHandlerNameCompany,
     hasError: nameCompanyHasError,
     onBlurInputHandler: onBlurNameCompanyHandler,
@@ -23,6 +24,7 @@ export default function Offcanvas(props: props) {
 
   const {
     enteredValue: enteredPhoneCompany,
+    valueIsValid: phoneIsValid,
     onChangeValueHandler: onChangeHandlerPhoneCompany,
     hasError: phoneCompanyHasError,
     onBlurInputHandler: onBlurPhoneCompanyHandler,
@@ -30,6 +32,7 @@ export default function Offcanvas(props: props) {
 
   const {
     enteredValue: enteredAddressCompany,
+    valueIsValid: addressIsValid,
     onChangeValueHandler: onChangeHandlerAddressCompany,
     hasError: addressCompanyHasError,
     onBlurInputHandler: onBlurAddressCompanyHandler,
@@ -37,16 +40,13 @@ export default function Offcanvas(props: props) {
 
   const {
     enteredValue: enteredRevenueCompany,
+    valueIsValid:revenueIsValid,
     onChangeValueHandler: onChangeHandlerRevenueCompany,
     hasError: revenueCompanyHasError,
     onBlurInputHandler: onBlurRevenueCompanyHandler,
   } = useInput((value: string) => value.trim().length > 1);
 
-  const formValid =
-    !nameCompanyHasError &&
-    !addressCompanyHasError &&
-    !phoneCompanyHasError &&
-    !revenueCompanyHasError;
+  const formValid = phoneIsValid&&addressIsValid&&revenueIsValid&&nameIsValid;
 
   function onClickHandler() {
     props.onClick();
@@ -62,7 +62,6 @@ export default function Offcanvas(props: props) {
         enteredPhoneCompany,
         enteredRevenueCompany
       );
-
       ccx.addComp(newComp);
       props.onClick();
     } else {
@@ -100,6 +99,7 @@ export default function Offcanvas(props: props) {
               Name Company
             </label>
             <input
+              required
               className={"pl-3 pr-4 py-1 rounded-3xl"}
               type="text"
               id="nameCompany"
@@ -110,7 +110,7 @@ export default function Offcanvas(props: props) {
             />
             {nameCompanyHasError && (
               <p className="text-red-700 font-jp font-semibold text-sm pl-2">
-                Please enter valid Name
+                Please enter a valid name
               </p>
             )}
           </div>
@@ -123,6 +123,7 @@ export default function Offcanvas(props: props) {
               Address Company
             </label>
             <input
+            required
               className={"pl-3 pr-3 py-1 rounded-3xl"}
               type="text"
               id="AddressCompany"
@@ -133,7 +134,7 @@ export default function Offcanvas(props: props) {
             />
             {addressCompanyHasError && (
               <p className="text-red-700 font-jp font-semibold text-sm pl-2">
-                Please enter an address
+                Please enter a valid address
               </p>
             )}
           </div>
@@ -146,6 +147,7 @@ export default function Offcanvas(props: props) {
               Phone Company
             </label>
             <input
+              required
               className={"pl-3 pr-4 py-1 rounded-3xl"}
               type="text"
               id="PhoneCompany"
@@ -156,7 +158,7 @@ export default function Offcanvas(props: props) {
             />
             {phoneCompanyHasError && (
               <p className="text-red-700 font-jp font-semibold text-sm pl-2">
-                Please enter a Phone Number
+                Please enter a valid phone
               </p>
             )}
           </div>
@@ -169,6 +171,7 @@ export default function Offcanvas(props: props) {
               Revenue Company
             </label>
             <input
+              required
               className={"pl-3 pr-4 py-1 rounded-3xl"}
               type="number"
               step={1}
@@ -181,7 +184,7 @@ export default function Offcanvas(props: props) {
             />
             {revenueCompanyHasError && (
               <p className="text-red-700 font-jp font-semibold text-sm pl-2">
-                Please enter a Revenue
+                Please enter a valid revenue
               </p>
             )}
           </div>
